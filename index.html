@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Microsoft Teams PWA</title>
+  <title>Microsoft Teams</title>
 
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/png" href="icon.png" />
@@ -23,7 +23,17 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
+      font-family: sans-serif;
     }
+
+    #fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+    }
+
     iframe {
       border: none;
       width: 100%;
@@ -32,6 +42,21 @@
   </style>
 </head>
 <body>
-  <iframe src="https://teams.live.com" allow="camera; microphone; fullscreen; clipboard-read; clipboard-write; display-capture;"></iframe>
+  <noscript>
+    <div id="fallback">
+      <p>JavaScript is required to load Microsoft Teams.<br />
+      <a href="https://teams.live.com" target="_blank">Click here to open Microsoft Teams</a></p>
+    </div>
+  </noscript>
+
+  <iframe
+    src="https://teams.live.com"
+    allow="camera; microphone; fullscreen; clipboard-read; clipboard-write; display-capture;"
+    loading="eager">
+    <p id="fallback">
+      Your browser does not support iframes.<br />
+      <a href="https://teams.live.com" target="_blank">Click here to open Microsoft Teams</a>
+    </p>
+  </iframe>
 </body>
 </html>
