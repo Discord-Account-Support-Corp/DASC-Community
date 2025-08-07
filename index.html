@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting to Microsoft Teams...</title>
-
+  <title>Launch Microsoft Teams</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icon.png" type="image/png" />
+  <link rel="icon" type="image/png" href="icon.png" />
   <meta name="theme-color" content="#6264A7" />
-
-  <script>
-    window.onload = function () {
-      window.location.href = "https://teams.live.com";
-    };
-  </script>
 
   <style>
     html, body {
       height: 100%;
+      margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: sans-serif;
+      background-color: #f4f4f4;
+    }
+    #container {
       text-align: center;
+    }
+    button {
+      padding: 14px 24px;
+      font-size: 1.2rem;
+      background-color: #6264A7;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5052a2;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h2>Redirecting to Microsoft Teams...</h2>
-    <p>If you are not redirected, <a href="https://teams.live.com">click here</a>.</p>
+  <div id="container">
+    <h1>Launch Microsoft Teams</h1>
+    <p>This app uses a redirect to open Microsoft Teams.</p>
+    <button onclick="window.location.href='https://teams.live.com'">Open Teams</button>
   </div>
 </body>
 </html>
