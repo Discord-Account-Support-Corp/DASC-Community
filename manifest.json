@@ -1,7 +1,7 @@
 {
   "name": "Microsoft Teams",
   "short_name": "Teams",
-  "start_url": "./",
+  "start_url": "https://teams.live.com/l/community/FDASGlqwyelb_wujA?v=g1",
   "display": "standalone",
   "background_color": "#6264A7",
   "theme_color": "#6264A7",
