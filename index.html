@@ -1,70 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+  <title>Microsoft Teams Launcher</title>
 
-<meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6264A7">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
 
-<title>DASC Teams Transporter</title>
-
-<link rel="manifest" href="./manifest.json">
-
-<meta name="theme-color" content="#5865F2">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="DASC Transporter">
-
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      border-radius: 10px;
+      border: none;
+      background: #6264A7;
+      color: white;
+    }
+  </style>
 </head>
-
 
 <body>
 
+<h1>Microsoft Teams</h1>
 
-<p>
-🚀 Opening Discord Account Support Corporation Outlook Group...
-</p>
+<p>Your Teams launcher is ready.</p>
 
+<button onclick="window.location.href='https://teams.live.com'">
+Open Teams
+</button>
 
 <script>
-
-const OUTLOOK_GROUP_URL =
-"teams.live.com";
-
-
-// Small delay gives the PWA time to load correctly
-
-setTimeout(() => {
-
-    window.location.replace(OUTLOOK_GROUP_URL);
-
-}, 100);
-
-
-
 if ("serviceWorker" in navigator) {
-
-    navigator.serviceWorker.register("./sw.js")
-
-    .then(() => {
-
-        console.log("DASC Transporter Service Worker Ready");
-
-    })
-
-    .catch(error => {
-
-        console.log("Service Worker Error:", error);
-
-    });
-
+  navigator.serviceWorker.register("./service-worker.js");
 }
-
 </script>
 
-
 </body>
-
 </html>
