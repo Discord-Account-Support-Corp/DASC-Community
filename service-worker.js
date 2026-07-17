@@ -1,3 +1,7 @@
-self.addEventListener('fetch', () => {
-  // Let all requests go directly to the network
+self.addEventListener("install", () => {
+  self.skipWaiting();
+});
+
+self.addEventListener("activate", () => {
+  self.clients.claim();
 });
