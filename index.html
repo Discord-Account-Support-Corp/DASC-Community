@@ -1,37 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Microsoft Teams PWA</title>
+  <title>Microsoft Teams Launcher</title>
 
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/png" href="icon.png" />
-  <meta name="theme-color" content="#6264A7" />
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-      });
-    }
-  </script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6264A7">
 
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
     }
-    iframe {
+
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      border-radius: 10px;
       border: none;
-      width: 100%;
-      height: 100%;
+      background: #6264A7;
+      color: white;
     }
   </style>
 </head>
+
 <body>
-  <iframe src="https://teams.live.com/l/community/FDASGlqwyelb_wujA?v=g1" allow="camera; microphone; fullscreen; clipboard-read; clipboard-write; display-capture;"></iframe>
+
+<h1>Microsoft Teams</h1>
+
+<p>Your Teams launcher is ready.</p>
+
+<button onclick="window.location.href='https://teams.live.com'">
+Open Teams
+</button>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js");
+}
+</script>
+
 </body>
 </html>
