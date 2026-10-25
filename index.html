@@ -5,21 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#6264A7">
-  <link rel="manifest" href="./manifest.json">
+  <meta name="robots" content="noindex">
   <title>Microsoft Teams Launcher</title>
-</head>
-<body>
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("./service-worker.js", {
-        updateViaCache: "none"
-      }).then(registration => {
-        registration.update().catch(() => {});
-      }).catch(() => {});
-    }
 
+  <script>
     window.location.replace("https://teams.live.com");
   </script>
+</head>
+<body>
 </body>
 </html>
 ```
