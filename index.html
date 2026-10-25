@@ -1,44 +1,74 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Microsoft Teams Launcher</title>
 
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.png" type="image/png">
+
   <meta name="theme-color" content="#6264A7">
 
   <style>
     body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 50px;
+      background: #ffffff;
+      color: #333333;
     }
 
-    button {
-      font-size: 20px;
-      padding: 15px 30px;
-      border-radius: 10px;
-      border: none;
+    main {
+      padding: 24px;
+    }
+
+    h1 {
+      color: #6264A7;
+    }
+
+    a {
+      display: inline-block;
+      padding: 14px 24px;
+      margin-top: 12px;
+      border-radius: 8px;
       background: #6264A7;
       color: white;
+      text-decoration: none;
     }
   </style>
 </head>
 
 <body>
+  <main>
+    <h1>Microsoft Teams</h1>
+    <p>Opening Microsoft Teams…</p>
+    <p>If you are not redirected, open Teams below.</p>
+    <a href="https://teams.live.com">Open Microsoft Teams</a>
+  </main>
 
-<h1>Microsoft Teams</h1>
+  <script>
+    // Request a service-worker update without waiting for it
+    // before opening Teams.
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./service-worker.js", {
+        updateViaCache: "none"
+      }).then(registration => {
+        registration.update().catch(() => {});
+      }).catch(() => {});
+    }
 
-<p>Your Teams launcher is ready.</p>
-
-<button onclick="window.location.href='https://teams.live.com'">
-Open Teams
-</button>
-
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js");
-}
-</script>
-
+    // Automatically open Teams instead of requiring a button tap.
+    window.setTimeout(() => {
+      window.location.replace("https://teams.live.com");
+    }, 700);
+  </script>
 </body>
 </html>
+```
