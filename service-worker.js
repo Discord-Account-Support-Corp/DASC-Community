@@ -1,8 +1,6 @@
 ```javascript
-const VERSION = "teams-community-launcher-v1";
-
 self.addEventListener("install", event => {
-  self.skipWaiting();
+  event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener("activate", event => {
