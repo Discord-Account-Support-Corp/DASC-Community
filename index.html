@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#6264A7">
   <link rel="manifest" href="./manifest.json">
-  <title>Microsoft Teams Community</title>
-
-  <meta
-    http-equiv="refresh"
-    content="0; url=https://teams.live.com/l/community/FDASGlqwyelb_wujA"
-  >
-
+  <title>Microsoft Teams Community Launcher</title>
+</head>
+<body>
   <script>
+    const COMMUNITY_URL =
+      "https://teams.live.com/l/community/FDASGlqwyelb_wujA";
+
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./service-worker.js", {
         updateViaCache: "none"
@@ -22,12 +21,8 @@
       }).catch(() => {});
     }
 
-    window.location.replace(
-      "https://teams.live.com/l/community/FDASGlqwyelb_wujA"
-    );
+    window.location.replace(COMMUNITY_URL);
   </script>
-</head>
-<body>
 </body>
 </html>
 ```
