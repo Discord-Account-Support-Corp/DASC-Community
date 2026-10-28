@@ -5,11 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#6264A7">
-  <meta name="robots" content="noindex">
-  <title>Microsoft Teams Launcher</title>
+  <link rel="manifest" href="./manifest.json">
+  <title>Microsoft Teams Community Launcher</title>
 
   <script>
-    window.location.replace("https://teams.live.com/l/community/FDASGlqwyelb_wujA");
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./service-worker.js", {
+        updateViaCache: "none"
+      }).then(registration => {
+        registration.update().catch(() => {});
+      }).catch(() => {});
+    }
+
+    window.location.replace(
+      "https://teams.live.com/l/community/FDASGlqwyelb_wujA"
+    );
   </script>
 </head>
 <body>
