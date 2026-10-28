@@ -1,5 +1,5 @@
 ```javascript
-const VERSION = "teams-launcher-v3";
+const VERSION = "teams-community-launcher-v1";
 
 self.addEventListener("install", event => {
   self.skipWaiting();
